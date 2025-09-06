@@ -66,7 +66,7 @@ module Gruf
       grpc_server = nil
       grpc_server = server.server
 
-      t = Thread.new { grpc_server.run_till_terminated_or_interrupted(%w[INT TERM QUIT]) }
+      t = Thread.new { grpc_server.run_till_terminated_or_interrupted(%w[INT TERM]) }
       grpc_server.wait_till_running
 
       timeout = ::ENV.fetch('GRUF_RSPEC_SERVER_TIMEOUT_SEC', 2)
